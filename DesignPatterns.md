@@ -1,2 +1,108 @@
-# Strategy
+# 0.1 Strategy
 
+Todos os padrões de projeto definidos pela Gang of Four (GoF) possuem uma motivação:   
+resolver um problema recorrente.  
+Que tipo de problema o padrão Strategy visa resolver?  
+A existência de diversos algoritmos para uma ação, resultando na possibilidade de vários ifs.  
+Este padrão pode ser utilizado quando há diversos possíveis algoritmos para uma ação (como calcular imposto, por exemplo).   
+Nele, nós separamos cada um dos possíveis algoritmos em classes separadas.  
+
+Resumo:  
+
+- Padrões de projeto são soluções genéricas para problemas recorrentes do desenvolvimento de software orientado a objetos;
+- Existem três principais categorias de padrões de projeto:
+  - Comportamentais (que serão vistos neste treinamento)
+  - Estruturais
+  - Criacionais
+- Como diminuir a complexidade do nosso código, trocando múltiplas condicionais por classes:
+  - Esta técnica é chamada de Strategy, que é um dos padrões de projeto
+- Para saber mais:
+  - https://refactoring.guru/design-patterns/strategy 
+  
+
+# 02. Chain of Responsibility
+Em diversas ocasiões, ter diversos if pode ser um problema, e que ter uma classe que "pode crescer para sempre" também é um problema.
+Qual o problema real deste cenário, onde uma classe tem muitos if ou pode crescer para sempre?
+Se eu precisar editar um pedaço de código, para implementar uma nova funcionalidade, as chances de quebrar funcionalidades existentes são grandes
+Sempre que uma nova funcionalidade for implementada, o ideal é que possamos criar código novo e editar o mínimo possível de código já existente. 
+Este é um dos principais pontos do princípio Aberto-Fechado (Open-Closed Principle) do SOLID. 
+Ao editar código existente, podemos acabar quebrando funcionalidades já implementadas e funcionais.
+
+Resumo:
+- A diferenciar casos onde padrões semelhantes podem ser aplicados;
+- Como criar uma cadeia de possíveis algoritmos como Chain of Responsibility;
+- A utilizar o padrão para aplicar um desconto dentro de uma cadeia de possíveis descontos.
+- Para saber mais:
+  - https://refactoring.guru/design-patterns/chain-of-responsibility 
+  
+
+# 03. Template Method
+Aplicamos o pattern Template Method com a criação de um método concreto na classe “mãe”, que chama métodos abstratos implementados nas classes “filhas”
+Qual a principal vantagem da utilização desse padrão?
+Reaproveitar trechos de códigos comuns, evitando duplicações
+O padrão Template Method favorece o reaproveitamento de códigos comuns entre classes, evitando assim duplicações de códigos.
+
+Resumo:
+- Reforçamos a ideia de que repetição de código é problemática;
+- Criamos um template de algoritmo que estava sendo replicado em mais de uma classe e utilizamos herança para reaproveitar esse código:
+  - Aprendemos que a esta técnica foi dado o nome de Template Method;
+- Vimos que é possível aplicar mais de um padrão no mesmo código.
+- Para saber mais:
+  - https://refactoring.guru/design-patterns/template-method
+  
+
+# 04. State
+
+Vimos que o padrão State resolve um problema muito parecido com um problema resolvido por outro padrão.
+Que outro padrão seria esse?
+Strategy
+O padrão State, assim como o padrão Strategy, resolve o problema de muitos ifs no código.
+
+Resumo:
+- Que é possível que um objeto se comporte de formas diferentes, dependendo do seu estado;
+- Que, se o resultado de uma chamada de método depende do estado, podemos delegar esta ação para uma classe específica do estado atual:
+  - Aprendemos que a esta técnica foi dado o nome de State.
+- Para saber mais:
+  - https://refactoring.guru/design-patterns/state
+
+  
+# 05. Command
+
+O código criado até aqui é muito comumente encontrado em sistemas reais. 
+A diferença é que, ao invés de estar em um arquivo rodado na CLI, está em algum Controller ou algo do tipo.
+Qual o problema de ter um código arquitetado assim, recebendo os dados e executando todas as tarefas no mesmo local?
+
+Se fosse necessário executar o mesmo fluxo de outro lugar (web, API, filas), o código precisaria ser duplicado
+Da forma como o código foi organizado, se precisássemos, além de executar a geração de pedido através da CLI, também executar através de um formulário web, uma API e/ou mensagens de uma fila, precisaríamos duplicar todo este código em vários lugares.
+
+Resumo:
+- Que um caso de uso em nossa aplicação pode ter várias ações (salvar no banco, enviar e-mail, etc);
+- Que um caso de uso deve ser extraído para uma classe específica, ao invés de estar no arquivo da CLI, controller ou algo do tipo;
+- Que a técnica de extração do caso de uso para uma classe específica pode ser chamada de padrão Command;
+- A diferença do padrão Command da GoF para o padrão que utiliza Command Handler (muito utilizado no padrão de arquitetura Domain Driven Design).
+- Para saber mais: 
+  - https://refactoring.guru/design-patterns/command.
+  
+
+# 06. Observer
+
+Um *Command Handler* tem como responsabilidade, normalmente, apenas orquestrar as tarefas a serem executadas, ou seja, chamar as classes necessárias que realizam as tarefas desejadas. 
+No nosso caso, o Command Handler tinha todo o código do fluxo em seu corpo.
+Por quais motivos separar cada uma das tarefas em classes distintas é benéfico?
+
+Porque, com classes menores e mais concisas, é mais fácil encontrar possíveis problemas
+Se em algum momento uma das tarefas parar de funcionar, nós sabemos que há uma classe específica para este propósito e podemos começar a depuração por ela.
+
+Porque a implementação de cada tarefa pode mudar com o tempo e o Command Handler não deve precisar saber disso
+Imagine que a ferramenta utilizada para enviar e-mails mude depois de alguns anos. 
+O nosso Command Handler não precisa saber deste detalhe específico, então é interessante que cada classe seja responsável apenas por uma pequena tarefa.
+
+Resumo:
+- Que deixar a implementação de todas as tarefas de um caso de uso da aplicação na mesma classe pode trazer problemas:
+  - Dificuldade de manutenção;
+  - Classes muito grandes e difíceis de ler;
+  - Problemas quando precisar alterar a implementação de uma das tarefas.
+- Que é mais interessante separar cada ação em uma classe separada;
+- Como ligar um evento ocorrido com suas ações, através do padrão Observer.
+- Para saber mais:
+  - https://refactoring.guru/design-patterns/observer.
