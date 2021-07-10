@@ -1,4 +1,6 @@
-# 0.1 Strategy
+# Curso 1 - Padrões comportamentais 
+
+## 0.1 Strategy
 
 Todos os padrões de projeto definidos pela Gang of Four (GoF) possuem uma motivação:   
 resolver um problema recorrente.  
@@ -20,7 +22,7 @@ Resumo:
   - https://refactoring.guru/design-patterns/strategy 
   
 
-# 02. Chain of Responsibility
+## 02. Chain of Responsibility
 Em diversas ocasiões, ter diversos if pode ser um problema, e que ter uma classe que "pode crescer para sempre" também é um problema.
 Qual o problema real deste cenário, onde uma classe tem muitos if ou pode crescer para sempre?
 Se eu precisar editar um pedaço de código, para implementar uma nova funcionalidade, as chances de quebrar funcionalidades existentes são grandes
@@ -36,7 +38,7 @@ Resumo:
   - https://refactoring.guru/design-patterns/chain-of-responsibility 
   
 
-# 03. Template Method
+## 03. Template Method
 Aplicamos o pattern Template Method com a criação de um método concreto na classe “mãe”, que chama métodos abstratos implementados nas classes “filhas”
 Qual a principal vantagem da utilização desse padrão?
 Reaproveitar trechos de códigos comuns, evitando duplicações
@@ -51,7 +53,7 @@ Resumo:
   - https://refactoring.guru/design-patterns/template-method
   
 
-# 04. State
+## 04. State
 
 Vimos que o padrão State resolve um problema muito parecido com um problema resolvido por outro padrão.
 Que outro padrão seria esse?
@@ -66,7 +68,7 @@ Resumo:
   - https://refactoring.guru/design-patterns/state
 
   
-# 05. Command
+## 05. Command
 
 O código criado até aqui é muito comumente encontrado em sistemas reais. 
 A diferença é que, ao invés de estar em um arquivo rodado na CLI, está em algum Controller ou algo do tipo.
@@ -84,7 +86,7 @@ Resumo:
   - https://refactoring.guru/design-patterns/command.
   
 
-# 06. Observer
+## 06. Observer
 
 Um *Command Handler* tem como responsabilidade, normalmente, apenas orquestrar as tarefas a serem executadas, ou seja, chamar as classes necessárias que realizam as tarefas desejadas. 
 No nosso caso, o Command Handler tinha todo o código do fluxo em seu corpo.
@@ -106,3 +108,24 @@ Resumo:
 - Como ligar um evento ocorrido com suas ações, através do padrão Observer.
 - Para saber mais:
   - https://refactoring.guru/design-patterns/observer.
+  
+
+# Curso 2 - Padrões Estruturais 
+
+## 01. Adapters para reutilizar dependências
+Já sabemos que classes podem possuir dependências para realizar suas tarefas. 
+No último vídeo, a nossa classe passou a possuir uma dependência de alguma outra implementação que consiga realizar chamadas HTTP.
+Qual das alternativas a seguir é uma simples recomendação para trabalhar com dependências?
+
+Depender sempre de abstrações, e não de implementações específicas.
+Inclusive, esse é um dos princípio de SOLID (Dependency Inversion Principle, a letra D). 
+Devemos sempre preferir depender de abstrações, ou seja, interfaces ou classes abstratas, sempre que possível, ao invés de implementações específicas.
+
+Quando precisamos utilizar código legado ou código de componentes externos em nosso sistema, é muito comum não ter a interface (métodos públicos) batendo com o que a gente precisa, então nesses casos nós criamos adapters.
+Esse padrão é muito simples e muito utilizado no dia a dia do desenvolvimento, então vale a pena a sua leitura com mais calma: Adapter.
+Aplicando o pattern [Adapter](https://refactoring.guru/design-patterns/adapter)
+
+Resumo:
+- Que padrões estruturais nos ajudam a relacionar diversas classes de forma organizada
+- Que detalhes de infraestrutura devem ser abstraídos através de interfaces
+- Como o padrão Adapter pode nos ajudar a trocar detalhes de infraestrutura, sem muitas dores de cabeça
