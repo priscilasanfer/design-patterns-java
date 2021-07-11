@@ -180,3 +180,26 @@ Este padrão é bem simples, mas possui particularidades, então vale a pena uma
 Resumo:
 - Que podemos pegar um sub-sistema e expor parte de suas funcionalidades através de uma classe;
 - Que a classe responsável por ser essa fachada implementa o padrão Facade.
+
+
+## 05. Proxy
+Quais seriam bons motivos para utilização do padrão Proxy?
+
+Performance
+Esse foi exatamente o motivo demonstrado nessa aula.
+
+Segurança
+Podemos utilizar o padrão Proxy para interceptar classes e executar regras de segurança.
+
+Há uma falha na implementação do último vídeo do padrão Proxy: apenas o método getValor() está realizando a chamada para o objeto orçamento original.
+Para corrigir esse problema, nós temos duas opções:
+
+1. Implementar todos os métodos da classe Orcamento, delegando a chamada para o objeto original
+2. Apenas implementar a interface Orcavel, ao invés de estender Orcamento (Feito)
+
+Para saber mais detalhes sobre esse padrão simples, porém muito poderoso, você pode conferir este link: [Proxy](https://refactoring.guru/design-patterns/proxy).
+
+Resumo:
+- A interceptar o acesso a um método, através de uma classe derivada;
+- Quando isso pode ser útil, em nosso caso, para fazer cache;
+- Que, a esse conceito, se dá o nome de Proxy.

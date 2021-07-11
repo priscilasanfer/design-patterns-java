@@ -21,6 +21,12 @@ public class Orcamento implements Orcavel {
     }
 
     public BigDecimal getValor() {
+        // Simular lentidão de consulta de saldo em sistema externo
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return valor;
     }
 
@@ -58,7 +64,7 @@ public class Orcamento implements Orcavel {
         return situacao instanceof Finalizado;
     }
 
-    public void adicionaItem(Orcavel item){
+    public void adicionaItem(Orcavel item) {
         this.valor = valor.add(item.getValor());
         this.itens.add(item);
     }

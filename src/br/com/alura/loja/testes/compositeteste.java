@@ -3,10 +3,11 @@ package br.com.alura.loja.testes;
 import br.com.alura.loja.descontos.CalculadoraDeDescontos;
 import br.com.alura.loja.orcamento.ItemOrcamento;
 import br.com.alura.loja.orcamento.Orcamento;
+import br.com.alura.loja.orcamento.OrcamentoProxy;
 
 import java.math.BigDecimal;
 
-public class ComposicaoTeste {
+public class compositeteste {
     public static void main(String[] args) {
         Orcamento antigo = new Orcamento();
         antigo.adicionaItem(new ItemOrcamento(new BigDecimal("200")));
@@ -16,6 +17,9 @@ public class ComposicaoTeste {
         novo.adicionaItem(new ItemOrcamento(new BigDecimal("500")));
         novo.adicionaItem(antigo);
 
-        System.out.println(novo.getValor());
+        OrcamentoProxy proxy = new OrcamentoProxy(novo);
+
+        System.out.println(proxy.getValor());
+        System.out.println(proxy.getValor());
     }
 }
