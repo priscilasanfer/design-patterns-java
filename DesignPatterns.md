@@ -146,3 +146,22 @@ Resumo:
 - Que é possível adicionar comportamento a classes em tempo de execução;
 - A aplicar esse conhecimento para combinar impostos;
 - Que comportamentos adicionados em tempo de execução são possíveis, através do padrão Decorator.
+
+
+## 03. Composite
+
+Precisamos implementar uma forma de adicionar um orçamento a outro orçamento, e escolhemos a abordagem de podermos representar tanto orçamentos quanto itens de forma semelhante, através da interface Orcavel.
+Por que não simplesmente criamos um novo List<ItemOrcamento> na classe Orcamento?
+
+Porque dessa forma, podemos percorrer toda a nossa árvore de itens "orçáveis", de forma muito simples para calcular o valor.
+Ao implementar uma interface que permita representar ItemOrcamentos e Orcamentos de forma semelhante, podemos percorrer essa lista de Orcavels facilmente, para calcular o valor do orçamento, que é a raiz da árvore.
+
+É bastante comum nós precisarmos trabalhar com coleções de itens que podem ter mais de uma implementação. 
+Se essa estrutura pode ser descrita como uma árvore (no modelo computacional), então o padrão Composite pode ser muito útil.
+Para entender melhor os conceitos por trás do padrão, dá uma olhada nesse link: [Composite](https://refactoring.guru/design-patterns/composite).
+
+Resumo:
+- Por alto o que é uma representação de árvore;
+- Como representar itens e orçamentos de forma semelhante;
+- A percorrer a estrutura de árvores utilizando o padrão Composite.
+
