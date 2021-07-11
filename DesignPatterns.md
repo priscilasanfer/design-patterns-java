@@ -165,3 +165,18 @@ Resumo:
 - Como representar itens e orçamentos de forma semelhante;
 - A percorrer a estrutura de árvores utilizando o padrão Composite.
 
+
+## 04. Facade
+Enunciado: Vimos que é possível fornecer acesso a uma pequena parte de um sistema, através de uma única classe, e que essa classe pode acabar utilizando várias outras classes desse "sub-sistema".
+Quais as vantagens de utilizar uma classe dessas, ao invés de acessar o sistema completo diretamente?
+
+Simplicidade. Tendo acesso a parte de um sistema (módulo) através de uma única classe, temos uma interface mais simples.
+Uma classe desse tipo nos fornece poucos métodos públicos (um só, no nosso caso), com toda a infraestrutura necessária para realizar a tarefa.
+
+Em determinados casos, nós podemos precisar de um acesso simplificado a uma parte complexa ou grande do nosso sistema, como autenticação, acesso a sistema de arquivos, cache, etc. 
+Uma classe de fachada, contendo apenas a funcionalidade desejada, pode ser bastante útil.
+Este padrão é bem simples, mas possui particularidades, então vale a pena uma leitura mais completa:[Facade](https://refactoring.guru/design-patterns/facade).
+
+Resumo:
+- Que podemos pegar um sub-sistema e expor parte de suas funcionalidades através de uma classe;
+- Que a classe responsável por ser essa fachada implementa o padrão Facade.
